@@ -1,7 +1,10 @@
 #!/bin/bash
-#SBATCH --partition=XXX
+
+# script to prepare input files for plink and perform a PCA
+
+#SBATCH --partition=defq
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
 #SBATCH --job-name=pcaprep
 #SBATCH --mem=1g
 #SBATCH --time=48:00:00
@@ -11,15 +14,18 @@
 # load software
 module load plink-uoneasy/2.00a3.7-foss-2023a
 
-# Assumption of PCA is that data is independent
-# Not the case for genomic data
-# First step is to prune variants that are in linkage
+# An assumption of PCA is that the data is independent, this is not the case for genomic data
+# The first step is to prune variants that are in linkage
 # This will make series of new files so best to make a new directory and run within that
 # set the path to where you want this directory to be saved by changing XXX
 mkdir -p XXX/plink
-cd plink
 
-# Set vcf to use - start with the most filtered, smallest file
+# move to the directory you created
+cd XXX/plink
+
+# Set the vcf to use - start with the most filtered, smallest file
+# You can also try this with the unfiltered vcf and see what difference the filtering made
+# NOTE: you will need to replace XXX with the path to wherever you wrote your VCF file to in step 5
 VCF=XXX/vcf/stick.100b.vcf.gz
 
 # Perform linkage pruning - i.e. identify prune sites
