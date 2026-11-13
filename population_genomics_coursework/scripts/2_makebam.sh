@@ -7,7 +7,7 @@
 #SBATCH --partition=defq
 #SBATCH --job-name=makebam
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=8
+#SBATCH --cpus-per-task=8
 #SBATCH --mem=8g
 #SBATCH --time=144:00:00
 #SBATCH --mail-user=YOUR.NAME@nottingham.ac.uk
@@ -36,7 +36,7 @@ OUTFILE1=XXX/bam/${SAMPLE}.sort.bam
 OUTFILE2=XXX/bam/${SAMPLE}.rmd.bam
 
 # make the output directory and any parent directories if they don't already exist
-mkdir -p bam
+mkdir -p $(dirname $OUTFILE1)
 
 # print information about what the script is doing to the slurm output file
 echo "Aligning reads for $SAMPLE with bwa"
