@@ -9,7 +9,7 @@
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=8g
-#SBATCH --time=144:00:00
+#SBATCH --time=1:00:00
 #SBATCH --mail-user=YOUR.NAME@nottingham.ac.uk
 #SBATCH --mail-type=all
 #SBATCH --array=1-45 # Run 45 iterations of this script, one for each line in /share/BioinfMSc/life4141/names.txt
