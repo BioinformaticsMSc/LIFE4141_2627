@@ -12,7 +12,7 @@ library(tibble)
 
 # Read in data
 # Use a combination of functions
-pca <- read_table2("stick.eigenvec", col_names = FALSE)
+pca <- read_table("stick.eigenvec", col_names = FALSE)
 eigenval <- scan("stick.eigenval")
 
 # Some cleaning up is needed first
