@@ -26,7 +26,7 @@ cd XXX/plink
 # Set the vcf to use - start with the most filtered, smallest file
 # You can also try this with the unfiltered vcf and see what difference the filtering made
 # NOTE: you will need to replace XXX with the path to wherever you wrote your VCF file to in step 5
-VCF=XXX/vcf/stick.100b.vcf.gz
+VCF=XXX/vcf/stick.70b.vcf.gz
 
 # Perform linkage pruning - i.e. identify prune sites
 # Like many softwares plink was developed for use on human genomes, so we have to edit the expectation
