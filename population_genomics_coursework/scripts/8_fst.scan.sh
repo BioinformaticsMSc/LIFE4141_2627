@@ -7,7 +7,7 @@
 #SBATCH --job-name=fst_scan
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=1G
-#SBATCH --time=2:00:00
+#SBATCH --time=1:00:00
 #SBATCH --mail-user=YOUR.NAME@nottingham.ac.uk
 #SBATCH --mail-type=all
 
@@ -23,7 +23,7 @@ mkdir -p $OUTDIR
 
 # set the path to and name of your VCF file
 # NOTE: you will need to replace XXX with the path to wherever you wrote your VCF file to in step 5
-VCF=XXX/vcf/stick.100b.vcf.gz
+VCF=XXX/vcf/stick.70b.vcf.gz
 
 # make lists of all individuals in each population for input to vcftools
 # (Fst is calcualted between populations)
