@@ -22,6 +22,9 @@ INPUT=XXX/vcf/stick.70b.vcf.gz
 # NOTE: make sure you change XXX to the path you want to use
 OUTDIR=XXX/phylogeny
 
+# make the output directory and parents if they don't already exist
+mkdir -p $OUTDIR
+
 # move to the output directory
 cd $OUTDIR
 
