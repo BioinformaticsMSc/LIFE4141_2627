@@ -7,7 +7,7 @@
 #SBATCH --job-name=fst_scan
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=1G
-#SBATCH --time=1:00:00
+#SBATCH --time=00:15:00
 #SBATCH --mail-user=YOUR.NAME@nottingham.ac.uk
 #SBATCH --mail-type=all
 
