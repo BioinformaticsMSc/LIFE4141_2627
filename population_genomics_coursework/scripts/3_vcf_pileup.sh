@@ -29,6 +29,9 @@ REF=/share/BioinfMSc/life4141/genome/stickleback_v5_assembly.fa
 # NOTE: you will need to replace XXX with the path to wherever you wish to write the output to
 OUTFILE=XXX/vcf/stick.MQ20.$CHROMOSOME.vcf.gz
 
+# make the output directory and parent directories if they don't already exist
+mkdir -p $(dirname $OUTFILE)
+
 # Set the list of all bam files to call variants for, including their absoloute path
 # an example file is given here: /share/BioinfMSc/life4141/bam_list.txt
 # the example give paths to the bams you can use if you get stuck
