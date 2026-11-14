@@ -36,7 +36,7 @@ BAM_LIST=XXX/bam_list.txt
 populations=(obse obsm scad cist)
 for population in ${populations[@]}
 do
-grep -i "$population" /share/BioinfMSc/life4141/names.txt > $OUTDIR/$population.txt
+grep -i "$population" $BAM_LIST > $OUTDIR/$population.txt
 done
 
 # Set up a for loop to calculate pairwise Fst for each unique pair in our list of populations
