@@ -25,6 +25,10 @@ mkdir -p $OUTDIR
 # NOTE: you will need to replace XXX with the path to wherever you wrote your VCF file to in step 5
 VCF=XXX/vcf/stick.70b.vcf.gz
 
+# set the path to and name of your bam_list.txt file
+# NOTE: you will need to replace XXX with the path to wherever you wrote your bam_list.txt file to in step 2
+BAM_LIST=XXX/bam_list.txt
+
 # make lists of all individuals in each population for input to vcftools
 # (Fst is calcualted between populations)
 # we do this by making a list of populations and looping over them
