@@ -20,7 +20,7 @@ module load bcftools-uoneasy/1.18-GCC-13.2.0
 
 # Set the chromosome name for each iteration of this script using SLURM_ARRAY_TASK_ID to print the nth line in the chr.names.txt file
 # Note that for simplicity we are not using chrM (mitochondria), chrY (male sex chr) and chr19 (X chr).
-CHROMOSOME=$(sed -n "${SLURM_ARRAY_TASK_ID}p" /share/BioinfMSc/life4141/names.txt)
+CHROMOSOME=$(sed -n "${SLURM_ARRAY_TASK_ID}p" /share/BioinfMSc/life4141/chr.names.txt)
 
 # Set the path to and name of the reference genome
 REF=/share/BioinfMSc/life4141/genome/stickleback_v5_assembly.fa
