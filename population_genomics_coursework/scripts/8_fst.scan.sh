@@ -11,34 +11,49 @@
 #SBATCH --mail-user=YOUR.NAME@nottingham.ac.uk
 #SBATCH --mail-type=all
 
-# load initial software (here there is a software conflict so we will load and unload them as we use them in the script)
-module load bcftools-uoneasy/1.19-GCC-13.2.0
+# load initial software
+module load vcftools-uoneasy/0.1.16-GCC-12.3.0
 
-# make an output directory for your fst scan
+# set the output directory for your fst scan
 # NOTE: you will need to replace XXX with the path to wherever you want to write the output directory to
-mkdir -p XXX/fst_scan
+OUTDIR=XXX/fst_scan
 
+# make the output directory and any necessary parent directories
+mkdir -p $OUTDIR
 
 # set the path to and name of your VCF file
 # NOTE: you will need to replace XXX with the path to wherever you wrote your VCF file to in step 5
 VCF=XXX/vcf/stick.100b.vcf.gz
 
-# Use this command to extract individual names (which will the include path)
-bcftools query -l $VCF 
-# Basic script to estimate Fst in windows across the genome
-# Example code for vcftools Fst window scan in obse vs obsm contrast
-module load vcftools-uoneasy/0.1.16-GCC-12.3.0
-vcftools --gzvcf vcf/stick.100b.vcf.gz \
---max-missing 0.8 \
---maf 0.05 \
---weir-fst-pop obse.txt \
---weir-fst-pop obsm.txt \
---fst-window-size 5000 \
---fst-window-step 5000
+# make lists of all individuals in each population for input to vcftools
+# (Fst is calcualted between populations)
+# we do this by making a list of populations and looping over them
+# (the populations are obse, obsm, scad and cist and these form part of the individual names in /share/BioinfMSc/life4141/names.txt)
+populations=(obse obsm scad cist)
+for population in ${populations[@]}
+do
+grep -i "$population" /share/BioinfMSc/life4141/names.txt > $OUTDIR/$population.txt
+done
 
+# Set up a for loop to calculate pairwise Fst for each unique pair in our list of populations
+for ((i = 0; i < ${#populations[@]}; i++)); do
+  for ((j = i + 1; j < ${#populations[@]}; j++)); do
+    p1=${populations[i]}
+    p2=${populations[j]}
+
+# Estimate Fst in windows across the genome
 # Best practice to keep only sites with less than 20% of the data missing
 # MAF as before - both MAF and missing should have no impact because already filtered on this basis
-# A suggested window size; you may experiment to see if you can reduce this to the point that adjacent outlier (top 1%) windows start to get similar values.
-# Means windows will not overlap with the above window-size. Change in concert with that value.
-
-# Plain text files required for the above according to vcftools manual, list of the membership of each population:
+# 5000 is a suggested window size; you may experiment to see if you can reduce this to the point that adjacent outlier (top 1%) windows start to get similar values.
+# --fst-window-step should be the same as --fst-window-size so that windows will not overlap. Change this in concert with window size.
+    vcftools \
+      --gzvcf $VCF \
+      --max-missing 0.8 \
+      --maf 0.05 \
+      --weir-fst-pop $OUTDIR/$p1.txt \
+      --weir-fst-pop $OUTDIR/$p2.txt \
+      --fst-window-size 5000 \
+      --fst-window-step 5000 \
+      --out $OUTDIR/${p1}_${p2}
+  done
+done
