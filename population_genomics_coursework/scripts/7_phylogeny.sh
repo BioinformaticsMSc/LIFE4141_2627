@@ -16,7 +16,7 @@ module load raxml-ng-uoneasy/1.2.0-GCC-12.3.0
 
 # Set your input VCF file
 # NOTE: you will need to change XXX for the path to the filtered VCF file you generated with script 5
-INPUT=XXX/vcf/stick.100b.vcf.gz
+INPUT=XXX/vcf/stick.70b.vcf.gz
 
 # The first step is to convert the vcf to phylip format using python script
 python /share/BioinfMSc/vcf2phylip.py \
