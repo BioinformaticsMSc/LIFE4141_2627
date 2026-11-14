@@ -52,5 +52,8 @@ bcftools view \
 --exclude-types indels \
 -o $VCF_OUT2 $VCF_OUT1
 
+# Index the 2nd output VCF
+bcftools index $VCF_OUT2
+
 # Count the number of SNPs in the filtered VCF
 bcftools view -H $VCF_OUT2 | wc -l > $VCF_OUT2.SNPS.txt
