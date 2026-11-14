@@ -37,7 +37,7 @@ VCF=XXX/vcf/stick.100b.vcf.gz
 
 # Identify sites to prune 
 plink \
---vcf "$VCF" \
+--vcf $VCF \
 --double-id \
 --allow-extra-chr \
 --set-missing-var-ids @:# \
@@ -47,7 +47,7 @@ plink \
 # Prune and create PCA
 # --extract only use those positions for pca
 plink \
---vcf "$VCF" \
+--vcf $VCF \
 --double-id \
 --allow-extra-chr \
 --set-missing-var-ids @:# \
