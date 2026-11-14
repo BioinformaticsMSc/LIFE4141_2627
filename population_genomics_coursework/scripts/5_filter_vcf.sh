@@ -7,7 +7,7 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --job-name=filter_vcf
 #SBATCH --mem=1g
-#SBATCH --time=48:00:00
+#SBATCH --time=1:00:00
 #SBATCH --mail-user=YOUR.NAME@nottingham.ac.uk
 #SBATCH --mail-type=all
 
