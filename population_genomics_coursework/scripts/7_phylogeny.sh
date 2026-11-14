@@ -18,21 +18,28 @@ module load raxml-ng-uoneasy/1.2.0-GCC-12.3.0
 # NOTE: you will need to change XXX for the path to the filtered VCF file you generated with script 5
 INPUT=XXX/vcf/stick.70b.vcf.gz
 
+# set a directory for the output files of this analysis
+# NOTE: make sure you change XXX to the path you want to use
+OUTDIR=XXX/phylogeny
+
+# move to the output directory
+cd $OUTDIR
+
 # The first step is to convert the vcf to phylip format using python script
 python /share/BioinfMSc/vcf2phylip.py \
 -i $INPUT \
--o ${INPUT%.*.*}.phy
+-o $(basename ${INPUT%.*.*}).phy
 
 # Use raxml to make a bootstrapped phylogeny
 # This may take some time to run even with small datasets
 # GTR is model of evolution assumed
 raxml-ng \
 --all \
---msa ${INPUT%.*.*}.phy \
+--msa $(basename ${INPUT%.*.*}).phy \
 --threads 8 \
 --force perf_threads \
 --model GTR \
---prefix ${INPUT%.*.*} \
+--prefix $(basename ${INPUT%.*.*}) \
 --bs-trees 100
 
 # there are many softwares available to visualise trees, output is Newick Standard Format, have a go with some to view your tree
