@@ -6,7 +6,7 @@
 #SBATCH --nodes=1
 #SBATCH --job-name=phylogeny
 #SBATCH --cpus-per-task=8
-#SBATCH --mem=5G
+#SBATCH --mem=20G
 #SBATCH --time=1:00:00
 #SBATCH --mail-user=YOUR.NAME@nottingham.ac.uk
 #SBATCH --mail-type=all
