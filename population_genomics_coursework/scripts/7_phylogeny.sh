@@ -38,7 +38,7 @@ python /share/BioinfMSc/vcf2phylip.py \
 # GTR is model of evolution assumed
 raxml-ng \
 --all \
---msa $(basename ${INPUT%.*.*}).phy \
+--msa $(basename ${INPUT%.*.*}).min4.phy \
 --threads 8 \
 --force perf_threads \
 --model GTR \
