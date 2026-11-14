@@ -68,4 +68,4 @@ METRICS_FILE=$OUTFILE2.metrics
 samtools index $OUTFILE2
 
 # remove the bam file with duplicates not removed
-rm $OUTFILE
+rm $OUTFILE1
