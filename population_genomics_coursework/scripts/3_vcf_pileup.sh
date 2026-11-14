@@ -7,7 +7,7 @@
 #SBATCH --ntasks-per-node=20
 #SBATCH --job-name=stickpileupMQ20
 #SBATCH --mem=20g
-#SBATCH --time=12:00:00
+#SBATCH --time=4:00:00
 #SBATCH --mail-user=YOUR.NAME@nottingham.ac.uk
 #SBATCH --mail-type=all
 #SBATCH --array=1-20 # Run 20 iterations of this script, one for each line in /share/BioinfMSc/life4141/chr.names.txt
