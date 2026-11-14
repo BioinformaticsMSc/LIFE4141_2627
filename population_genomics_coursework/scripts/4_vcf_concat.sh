@@ -7,7 +7,7 @@
 #SBATCH --cpus-per-task=12
 #SBATCH --job-name=stickpileupMQ20
 #SBATCH --mem=20g
-#SBATCH --time=24:00:00
+#SBATCH --time=00:30:00
 #SBATCH --mail-user=YOUR.NAME@nottingham.ac.uk
 #SBATCH --mail-type=all
 
