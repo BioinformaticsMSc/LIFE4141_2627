@@ -11,7 +11,7 @@ git clone https://github.com/BioinformaticsMSc/LIFE4141_2627.git
 Navigate inside the directory for this session, inside the cloned repository:
 
 ```
-cd LIFE4141_2627/LIFE4141_machine_learning_practical
+cd LIFE4141_2627/machine_learning_practical
 ```
 
 
