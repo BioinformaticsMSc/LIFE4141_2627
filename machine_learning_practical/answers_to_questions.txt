@@ -1,0 +1,41 @@
+1. Why do we split our dataset into a training set and a test set?
+	One is to generate a model and one an independent dataset used to assess the model
+
+2. What proportion of the data will be included in the training set?
+	75%
+
+3. Given our use of train_test_split, do you think the algorithms we will be using are supervised, or unsupervised method?
+	supervised - unsupervised learning algorithms don't use a test set
+
+4. Given the scatter matrix above, which two features will be most likely to create an accurate model with which to predict the cultivar of wine?
+	probably total phenols and flavenoids, since these two features separate the cultivars the most
+
+5. Which two features would be the least likely to create an accurate model?
+	probably alcohol and malic acid
+
+6. What combinations of total phenols and flavenoids are likely to be difficult to predict in the test set based on the figure?
+	around 1.3 flavenoids and 2 total phenols and around 2.5 flavenoids and 2.5 total phenols
+
+7. It is impossible to say for sure without extra analyses, but from the figure, do you think we've overfit or underfit the model to the data?
+	I reckon we've overfit because those angles probably don't describe a real pattern - we cannot tell without more data
+
+8. How many wine's were asigned to the wrong cultivar?
+	15
+
+9. Can you think of any downsides of the K nearest neighbours algorithm for this dataset?
+	It's very simple. It only considers 2 variables. Clearly there is a zone of some overlap.
+
+10. In a hypothetical scenario, you are given a load more data and your accuracy reduces to .9. Upon investigation you find that your model is overfit. This means that the model is inferring patterns that are true only of the training set, meaining they are not generalisable. How might you adapt your strategy to reduce overfitting but still using K nearest neighbours?
+	Increase K - this can be titrated and plotted to find the value of k that gives the best test accuracy. Training set accuracy will probably decrease with > K.
+
+11. How many wines in the training set have flavanoids >= 2.31?
+	21
+
+12. Which cultivar would a wine with flavenoids 2,  alcohol 12, malic acid 2 and total phenols 2.5 be predicted to be by the tree displayed here?
+	class_1
+
+13. What is the route taken through this tree by the majority of wines?
+	False, false, true, true, false, false.
+
+14. Order the variables in most important to least important. Compare with the scatter matrix. Does this fit your expectations?
+	flavanoids, alcohol, total phenols, malic acid 	
